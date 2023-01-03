@@ -1,9 +1,10 @@
 package com.company.ex3;
 
 import com.company.ex2.Person;
+import io.vavr.collection.Set;
 
-import java.util.Collections;
-import java.util.Set;
+
+
 
 public class Cat extends Animal {
 
@@ -13,8 +14,9 @@ public class Cat extends Animal {
         super(name, owners);
     }
 
-    public Cat(String name, int tailLength) {
-        super(name, Collections.emptySet());
+
+    public Cat(String name, Set<Person> owners, int tailLength) {
+        super(name, owners);
         this.tailLength = tailLength;
     }
 

@@ -1,5 +1,7 @@
 package com.company.ex2;
 
+import java.util.Objects;
+
 public class Person {
     private String firstName;
     private String lastName;
@@ -42,4 +44,44 @@ public class Person {
         this.age = age;
         this.phoneNumber = phoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return  firstName ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (!Objects.equals(firstName, person.firstName)) return false;
+        if (!Objects.equals(lastName, person.lastName)) return false;
+        return Objects.equals(age, person.age);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (age != null ? age.hashCode() : 0);
+        return result;
+    }
+
+    //    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        Person person = (Person) o;
+//
+//        return Objects.equals(phoneNumber, person.phoneNumber);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return phoneNumber != null ? phoneNumber.hashCode() : 0;
+//    }
 }

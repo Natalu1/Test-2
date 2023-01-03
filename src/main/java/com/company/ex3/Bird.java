@@ -1,8 +1,8 @@
 package com.company.ex3;
 
 import com.company.ex2.Person;
+import io.vavr.collection.Set;
 
-import java.util.Set;
 
 public class Bird extends Animal{
 

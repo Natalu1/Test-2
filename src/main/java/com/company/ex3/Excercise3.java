@@ -1,20 +1,50 @@
 package com.company.ex3;
 
+import com.company.ex2.Person;
+import io.vavr.collection.HashSet;
+import io.vavr.collection.List;
+import io.vavr.collection.Set;
+
+import java.util.Comparator;
+
 public class Excercise3 {
 
 
     public static void main(String[] args) {
-
+        ex_3_1();
+        System.out.println(ex_3_2());
     }
 
     //Create one instance of Bird and two instances of Cat
     //run method giveVoice() on each created object
     private static void ex_3_1() {
+        Bird bird = new Bird("bird",
+                HashSet.of(new Person("Adam", "Nowak", 25)), 5);
+        Cat cat = new Cat("Cat",
+                HashSet.of(new Person("Adam", "Nowak", 25)), 3);
+        Cat cat2 = new Cat("Cat",
+                HashSet.of(new Person("Adam", "Nowak", 25)), 3);
+        List<Animal> animals = List.of(bird, cat, cat2);
+        animals.forEach(Animal::giveVoice);
     }
 
     //Create one instance of Bird and two instances of Cat together with owners
     //Write method returning Set of Person - it should be the oldest owner of the animal
-    private static void ex_3_2() {
+    private static Set<Person> ex_3_2() {
+        Bird bird = new Bird("bird",
+                HashSet.of(new Person("Adam", "Nowak", 25)), 5);
+        Cat cat = new Cat("Cat",
+                HashSet.of(new Person("Ewa", "Nowak", 25)), 3);
+        Cat cat2 = new Cat("Cat",
+                HashSet.of(new Person("Alla", "Nowak", 35),
+                        new Person("Max", "Kowal", 30)), 3);
+        List<Animal> animals = List.of(bird, cat, cat2);
+        return animals.map(animal -> animal.getOwners())
+                .map(people -> getOldOfPerson(people)).toSet();
+    }
+
+    private static Person getOldOfPerson(Set<Person> people) {
+        return people.maxBy(Comparator.comparingInt(Person::getAge)).get();
     }
 
     //Create one instance of Bird and two instances of Cat together with owners

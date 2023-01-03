@@ -1,7 +1,7 @@
 package com.company.ex1;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import io.vavr.collection.List;
 
 public class Exercise1 {
 
@@ -29,7 +29,7 @@ public class Exercise1 {
     }
 
     public static boolean isNotEqualTo(String first, String second) {
-        return false;         //todo ex1_1
+        return !first.equals(second);         //todo ex1_1
     }
 
     //Implement method toList taking multiple names and returning List of these names
@@ -41,7 +41,7 @@ public class Exercise1 {
     }
 
     public static List<String> toList(String... names) {
-        return new ArrayList<>(); //todo
+        return List.of(names); //todo
     }
 
     //Implement method getFirst returning first element of list
@@ -54,7 +54,9 @@ public class Exercise1 {
     }
 
     private static String getFirst(List<String> names) {
-        return null;
+        return names.head();
+        //return names.get(0);
+
     }
 
 }
