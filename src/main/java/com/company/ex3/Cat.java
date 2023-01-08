@@ -24,4 +24,9 @@ public class Cat extends Animal {
     void giveVoice() {
         System.out.println("Miau");
     }
+
+    @Override
+    int getSortAttribute() {
+        return tailLength;
+    }
 }

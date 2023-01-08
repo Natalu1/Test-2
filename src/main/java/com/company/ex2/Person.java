@@ -45,9 +45,13 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
+    public String fullName() {
+        return firstName + " " + lastName;
+    }
+
     @Override
     public String toString() {
-        return  firstName ;
+        return firstName;
     }
 
     @Override

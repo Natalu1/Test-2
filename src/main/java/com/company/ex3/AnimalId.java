@@ -8,4 +8,10 @@ public class AnimalId {
         this.animalName = animalName;
         this.ownerFullName = ownerFullName;
     }
+
+    @Override
+    public String toString() {
+        return "Animal name: " + animalName  +
+                ", owner full name: " + ownerFullName;
+    }
 }

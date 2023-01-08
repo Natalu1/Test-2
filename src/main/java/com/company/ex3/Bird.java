@@ -13,6 +13,11 @@ public class Bird extends Animal{
         System.out.println("ćwir ćwir");
     }
 
+    @Override
+    int getSortAttribute() {
+        return flySpeed*2;
+    }
+
     public Bird(String name, Set<Person> owners, int flySpeed) {
         super(name, owners);
         this.flySpeed = flySpeed;
