@@ -53,7 +53,9 @@ public class Excercise3 {
     }
 
     private static Person getOldOfPerson(Set<Person> people) {
-        return people.maxBy(Comparator.comparingInt(Person::getAge)).get();
+        return people.maxBy(person -> person.getAge())
+                .get();
+//                people.maxBy(Comparator.comparingInt(Person::getAge)).get();
     }
 
     //Create one instance of Bird and two instances of Cat together with owners
@@ -75,7 +77,9 @@ public class Excercise3 {
     }
 
     private static Option<Person> getOldOfPerson1(Set<Person> people) {
-        return people.maxBy(Comparator.comparingInt(Person::getAge));
+        return people.maxBy(person -> person.getAge());
+
+//                people.maxBy(Comparator.comparingInt(Person::getAge));
     }
 
     //Create one instance of Bird and two instances of Cat together with owners

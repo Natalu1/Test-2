@@ -46,7 +46,8 @@ public class Person {
     }
 
     public String fullName() {
-        return firstName + " " + lastName;
+        return String.format("%s,%s", firstName,lastName);
+//        firstName + " " + lastName;
     }
 
     @Override
